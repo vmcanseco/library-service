@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * The Bookshelf implementation is used to find and managed books.
  */
 @ApplicationScoped
-@Transactional(Transactional.TxType.REQUIRED)
+@Transactional(Transactional.TxType.REQUIRES_NEW)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class Bookshelf {

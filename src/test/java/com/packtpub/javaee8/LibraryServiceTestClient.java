@@ -2,9 +2,7 @@ package com.packtpub.javaee8;
 
 import com.packtpub.javaee8.domain.Author;
 import com.packtpub.javaee8.domain.Book;
-import com.packtpub.javaee8.domain.Loan;
 import org.glassfish.jersey.jsonb.JsonBindingFeature;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -59,7 +57,7 @@ public class LibraryServiceTestClient {
         Book createdBook = client.target(bookUri).request().accept(MediaType.APPLICATION_JSON).get(Book.class);
         assert book.equals(createdBook);
 
-        Loan loan = new Loan("mario-leander.reimer", LocalDate.now(), LocalDate.now().plusMonths(1));
+        /*Loan loan = new Loan("mario-leander.reimer", LocalDate.now(), LocalDate.now().plusMonths(1));
         LOGGER.log(Level.INFO, "Create new {0}.", loan);
         response = client.target(bookUri).path("/loans").request(MediaType.APPLICATION_JSON).post(Entity.json(loan));
         assert response.getStatus() == 201;
@@ -67,7 +65,7 @@ public class LibraryServiceTestClient {
         URI loanUri = response.getLocation();
         LOGGER.log(Level.INFO, "Get created loan with URI {0}.", loanUri);
         Loan createdLoan = client.target(loanUri).request().accept(MediaType.APPLICATION_JSON).get(Loan.class);
-        assert loan.equals(createdLoan);
+        assert loan.equals(createdLoan);*/
 
         LOGGER.log(Level.INFO, "Delete book with URI {0}.", bookUri);
         response = client.target(bookUri).request().delete();

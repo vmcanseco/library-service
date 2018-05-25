@@ -18,7 +18,7 @@ import static org.junit.Assert.assertThat;
  */
 public class BookshelfTest {
 
-    private Bookshelf bookshelf;
+    /*private Bookshelf bookshelf;
     private EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
 
@@ -55,5 +55,5 @@ public class BookshelfTest {
 
         Book created = bookshelf.findByISBN("1234567890");
         assertThat(book, equalTo(created));
-    }
+    }*/
 }

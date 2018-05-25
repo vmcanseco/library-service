@@ -1,12 +1,11 @@
 package com.packtpub.javaee8.domain;
 
-import javax.json.bind.annotation.JsonbPropertyOrder;
-import javax.persistence.*;
-import javax.ws.rs.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+import javax.json.bind.annotation.JsonbPropertyOrder;
+import javax.persistence.*;
+import javax.ws.rs.Path;
 /**
  * The main book entity.
  */
@@ -36,8 +35,6 @@ public class Book {
         this.author = author;
     }
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Loan> loans = new ArrayList<>();
 
     public String getIsbn() {
         return isbn;
@@ -64,7 +61,10 @@ public class Book {
         this.author = author;
     }
 
-    public Collection<Loan> getLoans() {
+  @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Loan> loans = new ArrayList<>();
+  
+  public Collection<Loan> getLoans() {
         return loans;
     }
 
@@ -85,7 +85,6 @@ public class Book {
             l.setBook(null);
         }
     }
-
     @Override
     public String toString() {
         return "Book{isbn='" + isbn + '\'' + ", title='" + title + '\'' + ", author=" + author + '}';
